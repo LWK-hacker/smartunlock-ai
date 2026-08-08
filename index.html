@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartUnlock AI - Web Proxy & Bypass</title>
+    <title>SmartUnlock AI - Fast Web & Article Unlocker</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -22,105 +22,94 @@
             align-items: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 700px;
             width: 100%;
-            margin-top: 40px;
+            margin-top: 50px;
             text-align: center;
         }
         h1 { color: #58a6ff; font-size: 2.2rem; margin-bottom: 10px; }
-        p { color: #8b949e; margin-bottom: 30px; }
+        p { color: #8b949e; margin-bottom: 30px; line-height: 1.5; }
         .search-box {
             display: flex;
+            flex-direction: column;
+            gap: 12px;
             background: var(--card-bg);
             border: 1px solid #30363d;
             border-radius: 8px;
-            padding: 8px;
+            padding: 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
         input[type="url"] {
-            flex: 1;
-            background: transparent;
-            border: none;
+            background: #0d1117;
+            border: 1px solid #30363d;
             color: #fff;
-            padding: 12px;
+            padding: 14px;
             font-size: 1rem;
+            border-radius: 6px;
             outline: none;
         }
         button {
             background-color: var(--accent);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px;
             border-radius: 6px;
             font-weight: bold;
+            font-size: 1rem;
             cursor: pointer;
             transition: 0.2s;
         }
         button:hover { background-color: #2ea043; }
-        .output-box {
-            margin-top: 30px;
-            background: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            display: none;
-            text-align: center;
+        .faq-section {
+            margin-top: 60px;
+            text-align: left;
+            border-top: 1px solid #30363d;
+            padding-top: 20px;
         }
-        .btn-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 20px;
-            background-color: #1f6feb;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item h3 { margin-bottom: 6px; color: #f0f6fc; font-size: 1rem; }
+        .faq-item p { color: #8b949e; font-size: 0.9rem; margin: 0; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>SmartUnlock AI</h1>
-    <p>Bypass restrictions & unlock clean content instantly.</p>
+    <p>Bypass paywalls, regional blocks, and read clean articles instantly.</p>
 
     <div class="search-box">
-        <input type="url" id="targetUrl" placeholder="Paste blocked article or site URL here..." required>
-        <button onclick="processBypass()">Unlock Now</button>
+        <input type="url" id="targetUrl" placeholder="Paste blocked article or URL (e.g. https://site.com)" required>
+        <button onclick="processBypass()">Unlock Content Now</button>
     </div>
 
-    <div class="output-box" id="outputBox">
-        <h3>Content Unlocked!</h3>
-        <p>If iframe doesn't load due to site security, click the direct proxy button below:</p>
-        <a id="directProxyBtn" href="#" target="_blank" class="btn-link">Open via Web Proxy</a>
-        <br><br>
-        <iframe id="proxyFrame" style="width:100%; height:450px; border:1px solid #30363d; border-radius:6px; margin-top:15px;"></iframe>
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>How to bypass article paywalls online for free?</h3>
+            <p>SmartUnlock AI routes the target URL through clean cache engine nodes, stripping away paywall scripts and popups instantly.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Do I need a VPN to unblock websites?</h3>
+            <p>No, SmartUnlock AI processes the request directly in your browser without requiring any VPN extension or software installation.</p>
+        </div>
     </div>
 </div>
 
 <script>
     function processBypass() {
-        let url = document.getElementById('targetUrl').value;
-        if(!url) return alert('Please enter a valid URL (e.g., https://example.com)');
+        let url = document.getElementById('targetUrl').value.trim();
+        if(!url) return alert('Please enter a valid website URL');
 
         if (!url.startsWith('http://') && !url.startsWith('https://')) {
             url = 'https://' + url;
         }
 
-        // Adsterra Direct Link Popup (Aapka ad trigger hoga)
+        // 1. Adsterra Direct Link Integration (Uncomment when you have your link)
         // window.open('YOUR_ADSTERRA_DIRECT_LINK', '_blank');
 
-        const outputBox = document.getElementById('outputBox');
-        const iframe = document.getElementById('proxyFrame');
-        const directBtn = document.getElementById('directProxyBtn');
-
-        outputBox.style.display = 'block';
-
-        // 1. WayBack / Archive Proxy View
+        // 2. Direct Proxy Unlocked Stream Redirect
         const proxyUrl = 'https://12ft.io/' + url;
-        
-        iframe.src = proxyUrl;
-        directBtn.href = proxyUrl;
+        window.location.href = proxyUrl;
     }
 </script>
 
