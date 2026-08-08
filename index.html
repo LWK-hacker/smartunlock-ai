@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartUnlock AI - Fast Web & Article Unlocker</title>
+    <title>SmartUnlock AI - Fast Web & Article Proxy</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -24,7 +24,7 @@
         .container {
             max-width: 700px;
             width: 100%;
-            margin-top: 50px;
+            margin-top: 40px;
             text-align: center;
         }
         h1 { color: #58a6ff; font-size: 2.2rem; margin-bottom: 10px; }
@@ -48,7 +48,12 @@
             border-radius: 6px;
             outline: none;
         }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
         button {
+            flex: 1;
             background-color: var(--accent);
             color: white;
             border: none;
@@ -60,6 +65,10 @@
             transition: 0.2s;
         }
         button:hover { background-color: #2ea043; }
+        .alt-btn {
+            background-color: #1f6feb;
+        }
+        .alt-btn:hover { background-color: #388bfd; }
         .faq-section {
             margin-top: 60px;
             text-align: left;
@@ -75,28 +84,31 @@
 
 <div class="container">
     <h1>SmartUnlock AI</h1>
-    <p>Bypass paywalls, regional blocks, and read clean articles instantly.</p>
+    <p>Bypass paywalls, regional restrictions, and unblock websites instantly without VPN.</p>
 
     <div class="search-box">
         <input type="url" id="targetUrl" placeholder="Paste blocked article or URL (e.g. https://site.com)" required>
-        <button onclick="processBypass()">Unlock Content Now</button>
+        <div class="btn-group">
+            <button onclick="processBypass('google')">Google Node Unlock</button>
+            <button onclick="processBypass('wayback')" class="alt-btn">Wayback Cache</button>
+        </div>
     </div>
 
     <div class="faq-section">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item">
-            <h3>How to bypass article paywalls online for free?</h3>
-            <p>SmartUnlock AI routes the target URL through clean cache engine nodes, stripping away paywall scripts and popups instantly.</p>
+            <h3>How does Google Node Unlock work?</h3>
+            <p>It fetches the target webpage through Google's high-speed cloud edge servers, bypassing ISP blocks and paywall restrictions safely.</p>
         </div>
         <div class="faq-item">
-            <h3>Do I need a VPN to unblock websites?</h3>
-            <p>No, SmartUnlock AI processes the request directly in your browser without requiring any VPN extension or software installation.</p>
+            <h3>Is this tool free and secure?</h3>
+            <p>Yes, SmartUnlock AI processes everything client-side using trusted global proxy nodes with standard HTTPS encryption.</p>
         </div>
     </div>
 </div>
 
 <script>
-    function processBypass() {
+    function processBypass(type) {
         let url = document.getElementById('targetUrl').value.trim();
         if(!url) return alert('Please enter a valid website URL');
 
@@ -104,11 +116,19 @@
             url = 'https://' + url;
         }
 
-        // 1. Adsterra Direct Link Integration (Jab Adsterra link mil jaye toh '//' hata kar link daal dena)
+        // 1. Adsterra Direct Link Integration
         // window.open('YOUR_ADSTERRA_DIRECT_LINK', '_blank');
 
-        // 2. SSL-Secure Bypass Node (Archive Engine)
-        const proxyUrl = 'https://archive.ph/latest/' + url;
+        let proxyUrl = '';
+        if(type === 'google') {
+            // Google Translate Web Proxy Node (Never Blocked in PK / Worldwide)
+            const cleanUrl = url.replace(/^https?:\/\//, '');
+            proxyUrl = 'https://translate.google.com/translate?sl=auto&tl=en&u=' + encodeURIComponent(url);
+        } else {
+            // Wayback Web Cache Engine
+            proxyUrl = 'https://web.archive.org/web/2/' + url;
+        }
+
         window.location.href = proxyUrl;
     }
 </script>
