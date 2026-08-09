@@ -3,278 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartUnlock AI - Free Online Web Proxy & Paywall Bypass Tool</title>
-    <meta name="description" content="SmartUnlock AI is an advanced, free online web proxy and paywall bypass platform. Unblock restricted websites, bypass news subscriptions, and access global content securely.">
-    <meta name="keywords" content="paywall bypass, web proxy, unblock websites, read articles free, online proxy server, bypass restriction, proxy bypass node">
+    <title>AI Career & Personality Matcher | Discover Your Perfect Role</title>
+    <meta name="description" content="Take this 1-minute interactive quiz to discover your ideal career path and personality archetype based on AI analysis.">
+    
+    <!-- Open Graph for Social Media Previews (Reddit, Pinterest, FB) -->
+    <meta property="og:title" content="AI Career & Personality Matcher 2026">
+    <meta property="og:description" content="Find out which high-paying career matches your psychological profile.">
+    <meta property="og:type" content="website">
+
+    <!-- CSS Styling -->
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent: #238636;
-            --text: #c9d1d9;
-            --border: #30363d;
-            --blue: #58a6ff;
-            --highlight: #1f6feb;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --success: #22c55e;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text);
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            line-height: 1.7;
+            padding: 20px;
         }
+
         .container {
-            max-width: 900px;
             width: 100%;
-            margin-top: 30px;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
             text-align: center;
         }
-        h1 { color: var(--blue); font-size: 2.6rem; margin-bottom: 8px; }
-        .subtitle { color: #8b949e; font-size: 1.15rem; margin-bottom: 30px; }
-        
-        .search-box {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-            text-align: left;
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
-        .search-box label { font-size: 0.95rem; color: #8b949e; font-weight: bold; }
-        input[type="url"] {
-            background: #0d1117;
-            border: 1px solid var(--border);
-            color: #fff;
-            padding: 16px;
-            font-size: 1rem;
-            border-radius: 8px;
-            outline: none;
+
+        .header p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
             width: 100%;
-            box-sizing: border-box;
+            background: #334155;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            display: none;
         }
-        input[type="url"]:focus { border-color: var(--blue); }
-        
-        button {
-            background-color: var(--accent);
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        /* Quiz Screens */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .btn-start, .btn-action {
+            background: var(--accent-color);
             color: white;
             border: none;
-            padding: 16px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
             border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.15rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: background 0.2s;
             width: 100%;
+            margin-top: 15px;
         }
-        button:hover { background-color: #2ea043; }
 
-        .content-section {
-            margin-top: 45px;
-            text-align: left;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 35px;
+        .btn-start:hover, .btn-action:hover {
+            background: var(--accent-hover);
         }
-        .content-section h2 { color: var(--blue); font-size: 1.6rem; margin-top: 30px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .content-section h2:first-child { margin-top: 0; }
-        .content-section h3 { color: #f0f6fc; font-size: 1.25rem; margin-top: 25px; }
-        .content-section p, .content-section li { color: #8b949e; font-size: 0.98rem; }
-        .content-section ul, .content-section ol { padding-left: 22px; }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .comparison-table th, .comparison-table td {
-            border: 1px solid var(--border);
-            padding: 12px;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-        .comparison-table th {
-            background-color: #0d1117;
-            color: var(--blue);
         }
 
-        .faq-item { margin-bottom: 25px; }
-        .faq-item h4 { color: #f0f6fc; margin-bottom: 6px; font-size: 1.1rem; }
-        .faq-item p { margin: 0; }
-
-        .blog-links {
-            margin-top: 40px;
+        .option-btn {
+            background: #334155;
+            color: var(--text-main);
+            border: 2px solid transparent;
+            padding: 14px;
+            border-radius: 8px;
             text-align: left;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
         }
-        .blog-links h3 { color: #f0f6fc; font-size: 1.2rem; }
-        .blog-links ul { list-style: none; padding: 0; }
-        .blog-links li { margin-bottom: 10px; }
-        .blog-links a { color: var(--blue); text-decoration: none; font-size: 0.95rem; }
-        .blog-links a:hover { text-decoration: underline; }
+
+        .option-btn:hover {
+            border-color: var(--accent-color);
+            background: #475569;
+        }
+
+        /* Result View */
+        .result-box {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--accent-color);
+            margin: 20px 0;
+        }
+
+        .result-title {
+            color: var(--success);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .result-desc {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Ad Slots Placeholder */
+        .ad-container {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            min-height: 50px;
+        }
 
         footer {
-            margin-top: 50px;
-            color: #484f58;
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border);
-            width: 100%;
-            padding-top: 20px;
-            text-align: center;
+            margin-top: 20px;
+            color: var(--text-sub);
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>SmartUnlock AI</h1>
-    <p class="subtitle">Next-Generation Cloud Web Proxy, Paywall Bypass & Content Unblocker</p>
-
-    <!-- Main Tool Box -->
-    <div class="search-box">
-        <label for="targetUrl">Enter Destination Web URL:</label>
-        <input type="url" id="targetUrl" placeholder="https://example.com/article-to-unlock" required>
-        <button onclick="processBypass()">Unlock Content Now</button>
-    </div>
-
-    <!-- Mega SEO Content Section (1000+ Words) -->
-    <div class="content-section">
-        <h2>About SmartUnlock AI: Complete Information Architecture</h2>
-        <p>In today's digital landscape, accessing global knowledge and open journalism has become increasingly complex. Regional internet censorship, restrictive local ISP firewalls, and aggressive commercial subscription paywalls placed by major media publishing networks limit free access to vital information. <strong>SmartUnlock AI</strong> was created as a lightweight, cloud-native web proxy solution designed to bypass digital boundaries effortlessly and restore open internet accessibility globally.</p>
-
-        <h2>How SmartUnlock AI Bypasses Digital Restrictions</h2>
-        <p>Traditional unblocking methods rely on Virtual Private Networks (VPNs) or full browser extension suites. While functional, VPNs route your entire machine's network connection through external encrypted tunnels, often slowing down overall browsing performance, triggering intrusive CAPTCHAs, or requiring paid recurring subscriptions.</p>
-        <p>SmartUnlock AI operates using a sophisticated <strong>Client-to-Cloud Node Routing Protocol</strong>. When you input a destination URL into our secure parsing engine, the system performs the following sequence:</p>
-        <ol>
-            <li><strong>URL Sanitation & Protocol Standardizing:</strong> The engine validates HTTPS signatures, cleans malicious URL tracking query parameters, and structures the target address for optimal fetching.</li>
-            <li><strong>Edge Cloud Fetching:</strong> Instead of making a direct request from your local IP address, SmartUnlock AI leverages high-speed cloud edge rendering nodes (such as Google Cloud Edge Network) to fetch the raw HTML markup.</li>
-            <li><strong>Paywall & Script Stripping:</strong> Dynamic JavaScript paywall counters, intrusive modal popups, and regional tracking pixels are stripped out during page compilation.</li>
-            <li><strong>Clean Client Delivery:</strong> The final rendered content is served cleanly to your browser session with zero bandwidth degradation.</li>
-        </ol>
-
-        <h2>SmartUnlock AI vs. Traditional VPNs & Web Extensions</h2>
-        <p>Understanding the architectural differences between SmartUnlock AI and traditional access tools helps users choose the best method for their browsing requirements:</p>
-        
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>SmartUnlock AI</th>
-                    <th>Standard VPNs</th>
-                    <th>Browser Extensions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Installation Required</strong></td>
-                    <td>No (100% Web-Based)</td>
-                    <td>Yes (App/Software)</td>
-                    <td>Yes (Plugin)</td>
-                </tr>
-                <tr>
-                    <td><strong>System Resource Usage</strong></td>
-                    <td>Zero Impact</td>
-                    <td>Moderate to High</td>
-                    <td>Low to Moderate</td>
-                </tr>
-                <tr>
-                    <td><strong>Bypass Paywalls</strong></td>
-                    <td>High Success Rate</td>
-                    <td>Low Success Rate</td>
-                    <td>Variable</td>
-                </tr>
-                <tr>
-                    <td><strong>Bandwidth Speed</strong></td>
-                    <td>Ultra Fast (Cloud Speed)</td>
-                    <td>Throttled / Slower</td>
-                    <td>Native Speed</td>
-                </tr>
-                <tr>
-                    <td><strong>Cost</strong></td>
-                    <td>100% Free</td>
-                    <td>Freemium / Paid</td>
-                    <td>Freemium</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Step-by-Step Guide: How to Unlock Any Website or News Article</h2>
-        <p>Unblocking a news article, research paper, or geographically blocked platform with SmartUnlock AI requires only three simple steps:</p>
-        <ul>
-            <li><strong>Step 1: Copy the Restricted URL:</strong> Navigate to your desired article or site, highlight the address bar, and copy the full URL (e.g., <code>https://www.example.com/restricted-article</code>).</li>
-            <li><strong>Step 2: Submit to SmartUnlock AI:</strong> Paste the copied link directly into the input field at the top of this page.</li>
-            <li><strong>Step 3: Click "Unlock Content Now":</strong> Press the green action button. Our cloud proxy engine will immediately fetch, clean, and render the unrestricted web page instantly.</li>
-        </ul>
-
-        <h2>Comprehensive Digital Freedom FAQ</h2>
-
-        <div class="faq-item">
-            <h4>1. Is SmartUnlock AI safe and private to use?</h4>
-            <p>Yes. SmartUnlock AI processes network requests through anonymous client-side proxy routing. We do not store browsing histories, log IP addresses, or tracking cookies on our servers.</p>
+    <div class="container">
+        <!-- Top Ad Placement -->
+        <div class="ad-container" id="ad-top">
+            <!-- Insert Banner/Social Bar Code Here -->
         </div>
 
-        <div class="faq-item">
-            <h4>2. Do I need to create an account or provide payment info?</h4>
-            <p>No account, registration, or credit card information is required. SmartUnlock AI is a 100% free web utility provided for research and educational purposes.</p>
+        <div class="progress-container" id="progress-box">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
 
-        <div class="faq-item">
-            <h4>3. Why do some websites show paywalls or regional blocks?</h4>
-            <p>Publishers utilize soft paywalls (metered article limits), hard paywalls (subscriber-only access), and geo-IP blocking to control audience access. SmartUnlock AI uses edge server proxy caches to request clean non-subscribers views directly from network origin points.</p>
+        <!-- 1. LANDING SCREEN -->
+        <div class="screen active" id="screen-welcome">
+            <div class="header">
+                <h1>AI Career Archetype Finder</h1>
+                <p>Answer 5 quick situational questions to uncover your ideal high-earning career path and work-style persona.</p>
+            </div>
+            <button class="btn-start" onclick="startQuiz()">Start 1-Min Assessment</button>
         </div>
 
-        <div class="faq-item">
-            <h4>4. What should I do if a specific link fails to unlock?</h4>
-            <p>Ensure that the full URL including <code>https://</code> was submitted correctly. If a site uses server-side token encryption, re-submitting the link or checking your internet connection resolves most network response delays.</p>
+        <!-- 2. QUIZ SCREEN -->
+        <div class="screen" id="screen-quiz">
+            <h2 id="question-text" style="font-size: 1.2rem; margin-bottom: 15px;">Question goes here...</h2>
+            <div class="options-grid" id="options-container">
+                <!-- Options injected dynamically -->
+            </div>
         </div>
 
-        <div class="faq-item">
-            <h4>5. Can I use SmartUnlock AI on mobile devices?</h4>
-            <p>Absolutely. SmartUnlock AI is built with a responsive design and works seamlessly across Android, iOS, tablets, and desktop devices without requiring mobile apps.</p>
+        <!-- 3. LOADING SCREEN -->
+        <div class="screen" id="screen-loading">
+            <h2>Analyzing Responses...</h2>
+            <p style="color: var(--text-sub); margin-top: 10px;">Matching personality metrics with Tier-1 industry trends.</p>
         </div>
-    </div>
 
-        <!-- SEO Cluster Links -->
-    <div class="blog-links">
-        <h3>Guides & Articles</h3>
-        <ul>
-            <li><a href="how-to-bypass-paywalls.html">📄 How to Bypass Article Paywalls Online for Free (Complete Guide)</a></li>
-            <li><a href="best-free-web-proxy-tools.html">⚡ Best Free Web Proxy Tools to Unblock Sites (2026 Comparison)</a></li>
-            <li><a href="unblock-websites-without-vpn.html">🌐 How to Unblock Websites Without a VPN on Mobile & PC</a></li>
-        </ul>
+        <!-- 4. RESULT SCREEN -->
+        <div class="screen" id="screen-result">
+            <div class="header">
+                <p style="color: var(--accent-color); font-weight: bold;">YOUR AI MATCH</p>
+                <div class="result-box">
+                    <div class="result-title" id="res-title">Strategy Architect</div>
+                    <p class="result-desc" id="res-desc">Loading details...</p>
+                </div>
+            </div>
+
+            <!-- Ad Placement Before CTA -->
+            <div class="ad-container" id="ad-result">
+                <!-- Native Ad or Direct Link Trigger -->
+            </div>
+
+            <button class="btn-action" onclick="shareResult()">Share Result & Retake</button>
+        </div>
     </div>
 
     <footer>
-        &copy; 2026 SmartUnlock AI. All rights reserved. Built for open internet accessibility.
+        &copy; 2026 AI Assessment Node. Fast, Anonymous & Free.
     </footer>
-</div>
 
-<script>
-    function processBypass() {
-        let url = document.getElementById('targetUrl').value.trim();
-        if(!url) return alert('Please enter a valid website URL');
+    <!-- Quiz Logic Engine -->
+    <script>
+        const quizData = [
+            {
+                q: "1. How do you prefer to solve complex problems at work?",
+                options: [
+                    { text: "Analyze data and design systematic solutions", score: "tech" },
+                    { text: "Lead brainstorm sessions and delegate tasks", score: "lead" },
+                    { text: "Create visual designs or write engaging copy", score: "creative" },
+                    { text: "Find quick hacks and focus on execution", score: "growth" }
+                ]
+            },
+            {
+                q: "2. Which work environment excites you most?",
+                options: [
+                    { text: "Fully remote with asynchronous deep work", score: "tech" },
+                    { text: "High-paced corporate startup with high stakes", score: "lead" },
+                    { text: "Flexible agency or independent freelance lab", score: "creative" },
+                    { text: "Data-driven growth department", score: "growth" }
+                ]
+            },
+            {
+                q: "3. What is your strongest natural skill?",
+                options: [
+                    { text: "Logical reasoning & pattern recognition", score: "tech" },
+                    { text: "Persuasion, negotiation, and strategy", score: "lead" },
+                    { text: "Storytelling, aesthetics, and user empathy", score: "creative" },
+                    { text: "Experimentation and rapid iteration", score: "growth" }
+                ]
+            },
+            {
+                q: "4. When faced with a tight deadline, you:",
+                options: [
+                    { text: "Automate repetitive steps to save time", score: "tech" },
+                    { text: "Rally the team and prioritize critical goals", score: "lead" },
+                    { text: "Focus intensely on delivering top quality", score: "creative" },
+                    { text: "Cut unnecessary features and ship MVP fast", score: "growth" }
+                ]
+            },
+            {
+                q: "5. What drives your primary career motivation?",
+                options: [
+                    { text: "Mastering complex technology & systems", score: "tech" },
+                    { text: "Building high-impact organizations", score: "lead" },
+                    { text: "Expressing original ideas & creativity", score: "creative" },
+                    { text: "Scaling revenue and financial freedom", score: "growth" }
+                ]
+            }
+        ];
 
-        if (!url.startsWith('http://') && !url.startsWith('https://')) {
-            url = 'https://' + url;
+        const resultsMap = {
+            tech: {
+                title: "Systems Architect & AI Engineer",
+                desc: "You possess high logical capacity. Your ideal career involves designing scalable software, AI infrastructure, or data modeling systems where focus and precision pay top rates."
+            },
+            lead: {
+                title: "Product Strategist & Executive",
+                desc: "You thrive on direction and high-level execution. You are naturally built to command teams, manage product roadmaps, and convert uncertainty into high-value ROI."
+            },
+            creative: {
+                title: "UX Innovator & Brand Strategist",
+                desc: "You connect emotion with design. High-paying visual design, UX design, and conversion-focused creative direction are your best revenue engines."
+            },
+            growth: {
+                title: "Growth Hacker & Arbitrage Specialist",
+                desc: "You are an efficiency machine. Your ideal role is scaling acquisition channels, optimizing conversion funnels, and managing high-ROI media operations."
+            }
+        };
+
+        let currentQ = 0;
+        let scores = { tech: 0, lead: 0, creative: 0, growth: 0 };
+
+        function startQuiz() {
+            document.getElementById('screen-welcome').classList.remove('active');
+            document.getElementById('screen-quiz').classList.add('active');
+            document.getElementById('progress-box').style.display = 'block';
+            loadQuestion();
         }
 
-        // Adsterra Direct Link Integration (Uncomment when adding your direct link)
-        // window.open('YOUR_ADSTERRA_DIRECT_LINK', '_blank');
+        function loadQuestion() {
+            const q = quizData[currentQ];
+            document.getElementById('question-text').innerText = q.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
 
-        // Verified Secure Cloud Proxy Node
-        const proxyUrl = 'https://translate.google.com/translate?sl=auto&tl=en&u=' + encodeURIComponent(url);
-        window.location.href = proxyUrl;
-    }
-</script>
+            // Update Progress Bar
+            const progress = ((currentQ) / quizData.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
 
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt.text;
+                btn.onclick = () => selectOption(opt.score);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(type) {
+            scores[type]++;
+            currentQ++;
+
+            // Trigger Popunder Ad on Question 3 or 5 for Maximum Conversion
+            if(currentQ === 3 || currentQ === 5) {
+                triggerAd();
+            }
+
+            if (currentQ < quizData.length) {
+                loadQuestion();
+            } else {
+                showLoading();
+            }
+        }
+
+        function triggerAd() {
+            // INSERT YOUR ADSTERRA DIRECT LINK / POPUNDER SCRIPT FUNCTION HERE
+            console.log("Popunder / Ad Event Triggered");
+        }
+
+        function showLoading() {
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('screen-quiz').classList.remove('active');
+            document.getElementById('screen-loading').classList.add('active');
+
+            setTimeout(() => {
+                document.getElementById('screen-loading').classList.remove('active');
+                document.getElementById('progress-box').style.display = 'none';
+                showResult();
+            }, 1500);
+        }
+
+        function showResult() {
+            // Determine highest score category
+            let topType = 'growth';
+            let maxScore = -1;
+            for (let key in scores) {
+                if (scores[key] > maxScore) {
+                    maxScore = scores[key];
+                    topType = key;
+                }
+            }
+
+            const res = resultsMap[topType];
+            document.getElementById('res-title').innerText = res.title;
+            document.getElementById('res-desc').innerText = res.desc;
+            document.getElementById('screen-result').classList.add('active');
+        }
+
+        function shareResult() {
+            location.reload();
+        }
+    </script>
 </body>
 </html>
