@@ -1,24 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://daoona.com/</loc>
-</url>
+  <url>
+    <loc>https://daoona.com/</loc>
+  </url>
 
-<url>
-<loc>https://daoona.com/career-guides/execution-builder.html</loc>
-</url>
+  <url>
+    <loc>https://daoona.com/career-guides/</loc>
+  </url>
 
-<url>
-<loc>https://daoona.com/career-guides/insight-investigator.html</loc>
-</url>
+  <url>
+    <loc>https://daoona.com/career-guides/systems-architect.html</loc>
+  </url>
 
-<url>
-<loc>https://daoona.com/career-guides/product-strategist.html</loc>
-</url>
+  <url>
+    <loc>https://daoona.com/career-guides/creative-innovator.html</loc>
+  </url>
 
-<url>
-<loc>https://daoona.com/career-guides/team-leader.html</loc>
-</url>
+  <url>
+    <loc>https://daoona.com/career-guides/people-strategist.html</loc>
+  </url>
+
+  <url>
+    <loc>https://daoona.com/career-guides/growth-strategist.html</loc>
+  </url>
+
+  <url>
+    <loc>https://daoona.com/career-guides/insight-investigator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://daoona.com/career-guides/product-strategist.html</loc>
+  </url>
+
+  <url>
+    <loc>https://daoona.com/career-guides/team-leader.html</loc>
+  </url>
+
+  <url>
+    <loc>https://daoona.com/career-guides/execution-builder.html</loc>
+  </url>
 
 </urlset>
