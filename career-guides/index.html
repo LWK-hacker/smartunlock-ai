@@ -1,21 +1,25 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Career Guides & Career Profiles | Daoona</title>
+  <title>Career Guides & Work Style Profiles | Daoona</title>
 
-  <meta name="description" content="Explore career profiles, work styles, strengths and possible career directions. Use Daoona's career guides as a starting point for career exploration.">
+  <meta name="description" content="Explore comprehensive career guides, work style profiles, and strategic frameworks to discover your core strengths, skills, and ideal career directions.">
 
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://daoona.com/career-guides/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Career Guides & Career Profiles | Daoona">
-  <meta property="og:description" content="Explore career profiles, strengths, work styles and possible career directions.">
+  <meta property="og:title" content="Career Guides & Work Style Profiles | Daoona">
+  <meta property="og:description" content="Discover in-depth career guides and work style archetypes tailored to your strengths and problem-solving style.">
   <meta property="og:url" content="https://daoona.com/career-guides/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Career Guides & Profiles | Daoona">
+  <meta name="twitter:description" content="Explore career guides and work style archetypes to accelerate your professional growth.">
 
   <style>
     * {
@@ -28,6 +32,7 @@
       color: #f7f8fc;
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     main {
@@ -37,13 +42,14 @@
     }
 
     nav {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     nav a {
       color: #aaa0ff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 15px;
     }
 
     h1 {
@@ -55,20 +61,62 @@
 
     h2 {
       margin-top: 50px;
-      font-size: 28px;
+      font-size: 26px;
+      letter-spacing: -0.5px;
     }
 
     .intro {
-      max-width: 700px;
+      max-width: 720px;
       color: #aeb4c3;
       font-size: 16px;
+    }
+
+    .featured-card {
+      margin-top: 30px;
+      padding: 28px;
+      border: 1px solid #3b2d71;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #161530, #0d121c);
+      text-decoration: none;
+      display: block;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-2px);
+      border-color: #8067ff;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #8067ff33;
+      color: #aaa0ff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .featured-card h3 {
+      color: #fff;
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .featured-card p {
+      color: #b0b6c6;
+      margin: 0;
+      font-size: 14px;
     }
 
     .guides {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 25px;
+      gap: 16px;
+      margin-top: 20px;
     }
 
     .card {
@@ -88,8 +136,8 @@
 
     .card h3 {
       color: #fff;
-      margin: 0 0 7px;
-      font-size: 17px;
+      margin: 0 0 8px;
+      font-size: 18px;
     }
 
     .card p {
@@ -99,8 +147,8 @@
     }
 
     .quiz-box {
-      margin-top: 55px;
-      padding: 30px 22px;
+      margin-top: 60px;
+      padding: 35px 24px;
       text-align: center;
       border: 1px solid #292347;
       border-radius: 20px;
@@ -108,31 +156,40 @@
     }
 
     .quiz-box h2 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
     }
 
     .quiz-box p {
       color: #9ba1b2;
-      font-size: 13px;
+      font-size: 14px;
+      max-width: 550px;
+      margin: 0 auto 18px;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 12px;
-      padding: 13px 19px;
+      padding: 13px 22px;
       border-radius: 12px;
       background: #8067ff;
       color: #fff;
       text-decoration: none;
       font-weight: 800;
+      font-size: 14px;
     }
 
     footer {
       border-top: 1px solid rgba(255,255,255,.08);
-      padding: 25px 20px 40px;
+      margin-top: 60px;
+      padding: 30px 20px 40px;
       text-align: center;
       color: #72798b;
-      font-size: 11px;
+      font-size: 12px;
+    }
+
+    footer a {
+      color: #72798b;
+      text-decoration: none;
+      margin: 0 8px;
     }
 
     @media (max-width: 650px) {
@@ -152,86 +209,83 @@
 <main>
 
   <nav>
-    <a href="../index.html">✦ Daoona</a>
+    <a href="../index.html">✦ Daoona Career</a>
   </nav>
 
   <header>
-    <h1>Career Guides</h1>
+    <h1>Career Guides Hub</h1>
 
     <p class="intro">
-      Explore career profiles to better understand different work styles,
-      strengths, skills and possible career directions. These guides are
-      designed to help you begin researching careers that may fit your
-      interests and preferences.
+      Explore detailed career profiles and practical decision frameworks to better understand your strengths, work style, and high-growth industry opportunities.
     </p>
   </header>
 
+  <a class="featured-card" href="what-career-should-i-choose.html">
+    <span class="badge">Featured Guide</span>
+    <h3>What Career Should I Choose? A Practical Decision Framework</h3>
+    <p>
+      Struggling to pick a career path? Learn a step-by-step method to evaluate your natural strengths, work style preferences, market demand, and salary potential before committing.
+    </p>
+  </a>
+
   <section>
-    <h2>Explore Career Profiles</h2>
+    <h2>Work Style Career Profiles</h2>
 
     <div class="guides">
 
       <a class="card" href="systems-architect.html">
         <h3>Systems Architect</h3>
         <p>
-          Explore analytical thinking, systems thinking, problem solving
-          and structured approaches to complex challenges.
+          Master complex problem-solving, technical architecture, data modeling, and structured systemic approaches.
         </p>
       </a>
 
       <a class="card" href="creative-innovator.html">
         <h3>Creative Innovator</h3>
         <p>
-          Explore originality, experimentation, curiosity and creative
-          approaches to new ideas and possibilities.
+          Harness conceptual design, visual storytelling, rapid experimentation, and original creative ideation.
         </p>
       </a>
 
       <a class="card" href="people-strategist.html">
         <h3>People Strategist</h3>
         <p>
-          Explore communication, collaboration, empathy, leadership and
-          people-focused career directions.
+          Excel in team communication, organizational culture, conflict resolution, and human talent management.
         </p>
       </a>
 
       <a class="card" href="growth-strategist.html">
         <h3>Growth Strategist</h3>
         <p>
-          Explore initiative, execution, opportunity spotting and
-          goal-focused approaches to growth.
+          Drive initiative, revenue experimentation, market positioning, and scalable business strategies.
         </p>
       </a>
 
       <a class="card" href="insight-investigator.html">
         <h3>Insight Investigator</h3>
         <p>
-          Explore research, evidence, curiosity, critical thinking and
-          finding patterns in complex information.
+          Uncover key trends, data patterns, empirical evidence, and deep analytical research insights.
         </p>
       </a>
 
       <a class="card" href="product-strategist.html">
         <h3>Product Strategist</h3>
         <p>
-          Explore user needs, business goals, strategy, prioritization
-          and practical product thinking.
+          Bridge user needs, technology frameworks, business objectives, and end-to-end product vision.
         </p>
       </a>
 
       <a class="card" href="team-leader.html">
         <h3>Team Leader</h3>
         <p>
-          Explore leadership, communication, coordination,
-          decision-making and shared outcomes.
+          Lead cross-functional teams, orchestrate project execution, remove roadblocks, and deliver key results.
         </p>
       </a>
 
       <a class="card" href="execution-builder.html">
         <h3>Execution Builder</h3>
         <p>
-          Explore practical thinking, organization, execution,
-          reliability and turning plans into outcomes.
+          Transform abstract plans into practical, operational realities with focus, reliability, and precision.
         </p>
       </a>
 
@@ -239,22 +293,27 @@
   </section>
 
   <section class="quiz-box">
-    <h2>Want to discover your own profile?</h2>
+    <h2>Discover Your Personal Career Profile</h2>
 
     <p>
-      Take the free Daoona career assessment and explore a personalized
-      starting point for your career research.
+      Take the free Daoona Career Matcher assessment to identify your primary work style archetype and personalized career directions.
     </p>
 
     <a class="btn" href="../index.html">
-      Take the Free Career Quiz →
+      Take the Free Career Assessment →
     </a>
   </section>
 
 </main>
 
 <footer>
-  © 2026 Daoona. All rights reserved.
+  <p>
+    <a href="../index.html">Home</a> | 
+    <a href="index.html">Career Guides</a> | 
+    <a href="../about.html">About</a> | 
+    <a href="../privacy.html">Privacy</a>
+  </p>
+  <p>© 2026 Daoona. All rights reserved.</p>
 </footer>
 
 </body>
